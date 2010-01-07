@@ -24,16 +24,13 @@ public class APITSCaller {
 	 * @return XML DOM containing Kenan's response
 	 */
 	public Document call(Document requestDOM) {
-		System.out.println("Pool size = " + XmlConnection.pool.getSize());
 		Document responseDOM = null; // the DOM returned by Kenan's API TS
-		XmlConnection connection = null;
-		//TODO investigate XmlConnection.pool
+		XmlConnection connection = null; // Middleware connection to Kenan
 		try {
 			// create a Tuxedo connection using the settings loaded from configuration files.  
 			connection = ConnectionFactory.instance().createXmlConnection(BSDMSettings.getDefault(), getContext());
 			responseDOM = connection.call(requestDOM); // Call API TS
 		} catch (FxException e) {
-			// call
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (TuxError e) {
@@ -55,6 +52,10 @@ public class APITSCaller {
 		return responseDOM;
 	}
 	
+	/** Initializes the <code>BSDMSessionContext</code> for ongoing use.  Once it has been initialized
+	 * it can be reused for each subsequent connection.
+	 * @return BSDMSessionContext instance including authenticated SecurityManager
+	 */
 	private BSDMSessionContext getContext() {
 		// once the context is initially populated it can be reused for every call
 		if (null != context) 
