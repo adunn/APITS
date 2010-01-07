@@ -17,7 +17,7 @@ if [ -z "$MULE_BASE" ] ; then
   export MULE_BASE
 fi
 
-#FX stuff
+#FX stuff, extracted from the Weblogic configuration on KFX2.0 Linux VM
 FX_INSTANCE="/home/arborfx"
 FX_SITE="${FX_INSTANCE}/site_specific/apits/javaclient/java"
 ORDERING_SITE="${FX_SITE}"
@@ -81,5 +81,4 @@ FX_JARS="${FX_JARS}:${FX_SITE}/shieldware.jar"
 MULE_LIB=./conf:./bin:$FX_JARS:$FX_SITE
 export MULE_LIB
 
-exec "$MULE_BASE/bin/mule" -config mule-config.xml -debug
-#exec java -classpath $MULE_LIB com.cycle30.apits.APITSInvoker 
+exec "$MULE_BASE/bin/mule" -config apits-config.xml -debug
