@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesource.org/schema/mule/core/2.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:stdio="http://www.mulesource.org/schema/mule/stdio/2.2"
+	xmlns:file="http://www.mulesource.org/schema/mule/file/2.2"
+	xmlns:mule-xml="http://www.mulesource.org/schema/mule/xml/2.2"
+	xsi:schemaLocation="
+          http://www.mulesource.org/schema/mule/core/2.2 http://www.mulesource.org/schema/mule/core/2.2/mule.xsd
+          http://www.mulesource.org/schema/mule/stdio/2.2 http://www.mulesource.org/schema/mule/stdio/2.2/mule-stdio.xsd
+          http://www.mulesource.org/schema/mule/file/2.2 http://www.mulesource.org/schema/mule/file/2.2/mule-file.xsd
+          http://www.mulesource.org/schema/mule/xml/2.2 http://www.mulesource.org/schema/mule/xml/2.2/mule-xml.xsd">
+	
+	<stdio:connector name="SystemStreamConnector"
+		promptMessage="Please enter something: " messageDelayTime="1000" />
+	<file:connector name="fileConnector" streaming="false" pollingFrequency="1000"></file:connector>
+	<model name="APITSModel">
+		<!--
+			A Mule service defines all the necessary information about how your
+			components will interact with the framework, other components in the
+			system and external sources. Please refer to the Configuration Guide
+			for a full description of all the parameters.
+		-->
+		<service name="APITSService">
+			<!-- any number of endpoints can be added to an inbound router -->
+			<inbound>
+				<file:inbound-endpoint path="/opt/APITS/input">
+					<transformers>
+						<file:file-to-string-transformer/>
+						<mule-xml:xml-to-dom-transformer returnClass="org.w3c.dom.Document" />
+					</transformers>
+					
+				</file:inbound-endpoint>
+				
+			</inbound>
+
+			<!-- <echo-component></echo-component> -->
+			<component class="com.cycle30.apits.APITSCaller">
+				<method-entry-point-resolver>
+					<include-entry-point method="call"/>
+				</method-entry-point-resolver>
+			</component>
+
+			<!--
+				An outbound router can have one or more router configurations that
+				can be invoked depending on business rules, message contents,
+				headers or any other criteria. The pass-through-router is a router
+				that automatically passes on every message it receives
+			-->
+			<outbound>
+				<pass-through-router>
+					<stdio:outbound-endpoint system="OUT">
+						<mule-xml:dom-to-xml-transformer />
+					</stdio:outbound-endpoint>
+				</pass-through-router>
+			</outbound>
+		</service>
+	</model>
+</mule>
