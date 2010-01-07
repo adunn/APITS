@@ -23,7 +23,7 @@
 		<service name="APITSService">
 			<!-- any number of endpoints can be added to an inbound router -->
 			<inbound>
-				<file:inbound-endpoint path="/opt/APITS/input">
+				<file:inbound-endpoint path="/opt/APITS/incoming">
 					<transformers>
 						<file:file-to-string-transformer/>
 						<mule-xml:xml-to-dom-transformer returnClass="org.w3c.dom.Document" />
