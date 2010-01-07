@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Request>
+	<Header>
+		<AccountServer e-dtype="int">3</AccountServer>
+		<OperatorName e-dtype="string">trainee</OperatorName>
+		<ApplicationName e-dtype="string">DOMExample3.java
+		</ApplicationName>
+	</Header>
+	<OrderedAccountCreate>
+		<Account>
+			<AccountCategory e-dtype="int">2</AccountCategory>
+			<BillLname e-dtype="string">Martinez</BillLname>
+			<BillFname e-dtype="string">Inez</BillFname>
+			<BillAddress1 e-dtype="string">321 Main St.</BillAddress1>
+		</Account>
+		<VerboseResponse e-dtype="boolean">true</VerboseResponse>
+	</OrderedAccountCreate>
+</Request>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Request>
+	<Header>
+		<OperatorName e-dtype="string">trainee</OperatorName>
+		<ApplicationName e-dtype="string">DOMExample1.java</ApplicationName>
+	</Header>
+	<AccountLocateFind>
+		<AccountLocate>
+			<Fetch e-dtype="boolean">true</Fetch>
+			<BillFname>
+				<Like e-dtype="string">R%</Like>
+			</BillFname>
+			<Key>
+				<Fetch e-dtype="boolean">true</Fetch>
+			</Key>
+		</AccountLocate>
+	</AccountLocateFind>
+</Request>
