@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Request xmlns="CSG" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Header>
+		<AccountServer e-dtype="int">3</AccountServer>
+	</Header>
+	<Exception>
+		<Class e-dtype="string">sw_ExceptionClass</Class>
+		<Description e-dtype="string">tpcall failed</Description>
+		<File e-dtype="string">ck_Call.c</File>
+		<Function e-dtype="string">ck_Call</Function>
+		<Item>
+			<BSD_APPNAME e-dtype="string">Shieldware</BSD_APPNAME>
+			<BSD_EN e-dtype="string">tpcall failed</BSD_EN>
+			<BSD_TEXTID e-dtype="int">11</BSD_TEXTID>
+			<ServiceName e-dtype="string">WorkpointGenerate</ServiceName>
+			<TuxedoServiceName e-dtype="string">W_WpGn
+			</TuxedoServiceName>
+			<tperrno e-dtype="int">6</tperrno>
+			<tpstrerror e-dtype="string">TPENOENT - no entry found</tpstrerror>
+		</Item>
+		<Line e-dtype="int">561</Line>
+		<Name e-dtype="string">exc_TUX_TPCALL</Name>
+		<TraceStack e-dtype="list">
+			<TraceNode>
+				<File e-dtype="string">ck_Call.c</File>
+				<Function e-dtype="string">ck_Call</Function>
+				<Line e-dtype="int">532</Line>
+			</TraceNode>
+			<TraceNode>
+				<File e-dtype="string">ServiceOrderWorkflowGenerate.c</File>
+				<Function e-dtype="string">ServiceOrderWorkflowGenerate</Function>
+				<Line e-dtype="int">295</Line>
+			</TraceNode>
+			<TraceNode>
+				<File e-dtype="string">ServiceOrderWorkflowGenerate.c</File>
+				<Function e-dtype="string">ServiceOrderWorkflowGenerate</Function>
+				<Line e-dtype="int">261</Line>
+			</TraceNode>
+			<TraceNode>
+				<File e-dtype="string">om_ServiceOrderCommit.c</File>
+				<Function e-dtype="string">om_ServiceOrderCommit</Function>
+				<Line e-dtype="int">484</Line>
+			</TraceNode>
+			<TraceNode>
+				<File e-dtype="string">om_ServiceOrderCommit.c</File>
+				<Function e-dtype="string">om_ServiceOrderCommit</Function>
+				<Line e-dtype="int">297</Line>
+			</TraceNode>
+			<TraceNode>
+				<File e-dtype="string">om_OrderCommit.c</File>
+				<Function e-dtype="string">om_OrderCommit</Function>
+				<Line e-dtype="int">266</Line>
+			</TraceNode>
+			<TraceNode>
+				<File e-dtype="string">om_OrderCommit.c</File>
+				<Function e-dtype="string">commonServiceWrapper</Function>
+				<Line e-dtype="int">838</Line>
+			</TraceNode>
+			<TraceNode>
+				<File e-dtype="string">om_OrderCommit.c</File>
+				<Function e-dtype="string">commonServiceWrapper</Function>
+				<Line e-dtype="int">558</Line>
+			</TraceNode>
+			<TraceNode>
+				<File e-dtype="string">om_OrderCommit.c</File>
+				<Function e-dtype="string">I_OrderCommit</Function>
+				<Line e-dtype="int">1282</Line>
+			</TraceNode>
+		</TraceStack>
+	</Exception>
+</Request>

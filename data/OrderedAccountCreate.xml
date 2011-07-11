@@ -9,9 +9,9 @@
 	<OrderedAccountCreate>
 		<Account>
 			<AccountCategory e-dtype="int">2</AccountCategory>
-			<BillLname e-dtype="string">Martinez</BillLname>
-			<BillFname e-dtype="string">Inez</BillFname>
-			<BillAddress1 e-dtype="string">321 Main St.</BillAddress1>
+			<BillLname e-dtype="string">Tester</BillLname>
+			<BillFname e-dtype="string">Testy</BillFname>
+			<BillAddress1 e-dtype="string">88 Grant St</BillAddress1>
 		</Account>
 		<VerboseResponse e-dtype="boolean">true</VerboseResponse>
 	</OrderedAccountCreate>
