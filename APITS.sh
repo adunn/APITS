@@ -81,4 +81,4 @@ FX_JARS="${FX_JARS}:${FX_SITE}/shieldware.jar"
 MULE_LIB=./conf:./bin:$FX_JARS:$FX_SITE
 export MULE_LIB
 
-exec "$MULE_BASE/bin/mule" -config apits-config.xml -M-Dlog4j.configuration=file:///opt/APITS/log4j.properties -debug 
+exec "$MULE_BASE/bin/mule" -config apits-config.xml -debug
